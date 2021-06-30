@@ -16,4 +16,16 @@ public class Customer extends User {
 
   @Column(length = 280)
   private String notes;
+
+  public List<Pet> getPets() {
+    return pets;
+  }
+
+  public String getPhoneNumber() {
+    return phoneNumber;
+  }
+
+  public String getNotes() {
+    return notes;
+  }
 }
