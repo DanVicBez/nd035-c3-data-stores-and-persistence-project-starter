@@ -18,4 +18,28 @@ public class Employee extends User {
   
   @ManyToMany(mappedBy = "employees")
   private List<Schedule> schedules;
+
+  public Set<EmployeeSkill> getSkills() {
+    return skills;
+  }
+
+  public void setSkills(Set<EmployeeSkill> skills) {
+    this.skills = skills;
+  }
+
+  public Set<DayOfWeek> getDaysAvailable() {
+    return daysAvailable;
+  }
+
+  public void setDaysAvailable(Set<DayOfWeek> daysAvailable) {
+    this.daysAvailable = daysAvailable;
+  }
+
+  public List<Schedule> getSchedules() {
+    return schedules;
+  }
+
+  public void setSchedules(List<Schedule> schedules) {
+    this.schedules = schedules;
+  }
 }

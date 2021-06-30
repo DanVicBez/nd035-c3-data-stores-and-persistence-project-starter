@@ -10,10 +10,18 @@ public class CustomerService {
   @Autowired
   private CustomerRepository customers;
 
+  public Customer save(Customer customer) {
+    return customers.save(customer);
+  }
+  
+  public List<Customer> getAll() {
+    return customers.findAll();
+  }
+
   public Customer getById(Long customerId) {
     return customers.findById(customerId).orElse(null);
   }
-  
+
   public List<Pet> getPetsByOwnerId(Long customerId) {
     return customers.findById(customerId).get().getPets();
   }
