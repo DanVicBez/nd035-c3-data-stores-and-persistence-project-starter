@@ -11,11 +11,17 @@ public class PetService {
   private PetRepository pets;
 
   public Pet save(Pet pet) {
-    return pets.save(pet);
+    Pet saved = pets.save(pet);
+
+    if (saved.getOwner() != null) {
+      saved.getOwner().getPets().add(saved);
+    }
+
+    return saved;
   }
   
   public Pet getById(Long petId) {
-    return pets.findById(petId).get();
+    return pets.findById(petId).orElse(null);
   }
   
   public List<Pet> getAll() {

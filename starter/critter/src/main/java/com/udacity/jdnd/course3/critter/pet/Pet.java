@@ -1,6 +1,7 @@
 package com.udacity.jdnd.course3.critter.pet;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -31,7 +32,7 @@ public class Pet {
   private String notes;
   
   @ManyToMany(mappedBy = "pets")
-  private List<Schedule> schedules;
+  private List<Schedule> schedules = new ArrayList<>();
 
   public Long getId() {
     return id;

@@ -1,6 +1,7 @@
 package com.udacity.jdnd.course3.critter.user;
 
 import java.time.DayOfWeek;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import javax.persistence.ElementCollection;
@@ -17,7 +18,7 @@ public class Employee extends User {
   private Set<DayOfWeek> daysAvailable;
   
   @ManyToMany(mappedBy = "employees")
-  private List<Schedule> schedules;
+  private List<Schedule> schedules = new ArrayList<>();
 
   public Set<EmployeeSkill> getSkills() {
     return skills;
