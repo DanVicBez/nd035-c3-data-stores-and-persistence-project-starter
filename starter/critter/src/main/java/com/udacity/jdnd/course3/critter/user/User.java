@@ -7,14 +7,15 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
-// TODO explain choice of inheritance strategy
+// table-per-class inheritance strategy was chosen because having a User table just to store 2
+// fields felt unneccessary and would add complexity to SQL queries requiring additional joins
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class User {
   @Id
   @GeneratedValue
   private Long id;
-  
+
   @Column(length = 70)
   private String name;
 

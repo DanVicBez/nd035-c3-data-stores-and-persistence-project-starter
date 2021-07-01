@@ -20,7 +20,7 @@ public class EmployeeService {
   public Employee getById(Long employeeId) {
     return employees.findById(employeeId).orElse(null);
   }
-  
+ 
   public void setAvailabilityForEmployee(Long employeeId, Set<DayOfWeek> daysAvailable) {
     Employee employee = getById(employeeId);
     
