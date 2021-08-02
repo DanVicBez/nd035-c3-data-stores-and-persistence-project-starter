@@ -23,9 +23,11 @@ public class PetController {
   @Autowired
   private ScheduleService scheduleService;
 
-  @PostMapping
-  public PetDTO savePet(@RequestBody PetDTO petDto) {
-    return convertToDto(petService.save(convertFromDto(petDto)));
+  @PostMapping("/{petId}")
+  public PetDTO savePet(@RequestBody PetDTO petDto, @PathVariable long petId) {
+    Pet pet = convertFromDto(petDto);
+    pet.setId(petId);
+    return convertToDto(petService.save(pet));
   }
 
   @GetMapping("/{petId}")

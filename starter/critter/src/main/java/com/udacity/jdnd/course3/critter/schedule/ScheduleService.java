@@ -9,6 +9,7 @@ import com.udacity.jdnd.course3.critter.user.Customer;
 import com.udacity.jdnd.course3.critter.user.Employee;
 
 @Service
+@Transactional
 public class ScheduleService {
   @Autowired
   private ScheduleRepository schedules;
@@ -21,7 +22,6 @@ public class ScheduleService {
     return schedules.findAllByEmployeesContaining(employee);
   }
 
-  @Transactional
   public Schedule save(Schedule schedule) {
     Schedule saved = schedules.save(schedule);
     if (saved.getEmployees() != null) {

@@ -7,11 +7,11 @@ import org.springframework.transaction.annotation.Transactional;
 import com.udacity.jdnd.course3.critter.user.Customer;
 
 @Service
+@Transactional
 public class PetService {
   @Autowired
   private PetRepository pets;
 
-  @Transactional
   public Pet save(Pet pet) {
     Pet saved = pets.save(pet);
 

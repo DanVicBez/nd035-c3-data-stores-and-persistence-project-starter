@@ -40,7 +40,11 @@ public class ScheduleController {
 
   @GetMapping("/pet/{petId}")
   public List<ScheduleDTO> getScheduleForPet(@PathVariable long petId) {
-    return scheduleService.getAllForPet(petService.getById(petId)).stream().map(this::convertToDto)
+    Pet pet = petService.getById(petId);
+    
+    if (pet == null) return null;
+    
+    return scheduleService.getAllForPet(pet).stream().map(this::convertToDto)
         .collect(Collectors.toList());
   }
 
